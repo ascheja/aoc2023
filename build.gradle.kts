@@ -20,7 +20,7 @@ kotlin {
 tasks.register("newDay") {
     val sourceBasePath = projectDir.toPath().resolve("./src/main/kotlin")
     val inputsBasePath = projectDir.toPath().resolve("./inputs")
-    val lastDay = Files.list(sourceBasePath).asSequence()
+    val lastDay = Files.list(inputsBasePath).asSequence()
         .filter { it.isDirectory() }
         .mapNotNull { it.name.substringAfter("day", "").ifEmpty { null }?.toIntOrNull() }
         .maxOrNull() ?: 0
